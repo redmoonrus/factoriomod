@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Image;
+use App\Models\Moditems;
+
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +33,13 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+        \DB::enableQueryLog();
+        $item=new Moditems();
+        $item->name='sfsdf';
+        $item->text='sdfs';
+        $item->save();
+        print_r(\DB::getQueryLog());
+		//return view('home');
 	}
 
 }
