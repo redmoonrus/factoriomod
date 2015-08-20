@@ -8,11 +8,15 @@
 				<div class="panel-heading">{{trans('home.New')}}</div>
 
                 <div class="panel-body">
-                    <div class="well">
-                        <h4><span class="label label-danger">Рфксщкшщ</span></h4>
-                        <div>dfgdg</div>
+                    @foreach($news as $newitem)
+
+                        <div class="well">
+                        <h4><span class="label label-danger">{{$newitem->name}}</span></h4>
+                        <div>{{$newitem->text}}</div>
                         <div><span>{{trans('home.more')}}</span></div>
-                    </div>
+
+                        </div>
+                    @endforeach
                 </div>
 			</div>
 		</div>

@@ -33,13 +33,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-        \DB::enableQueryLog();
-        $item=new Moditems();
-        $item->name='sfsdf';
-        $item->text='sdfs';
-        $item->save();
-        print_r(\DB::getQueryLog());
-		//return view('home');
+		$news=\DB::table('moditems')->orderBy('created_at','desc')->take(10)->get();
+		return view('home',['news'=>$news]);
 	}
 
 }
